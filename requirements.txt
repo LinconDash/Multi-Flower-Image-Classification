@@ -1,0 +1,10 @@
+numpy
+albumentations
+pillow
+tensorflow
+matplotlib
+flask
+tqdm
+ipykernel
+scikit-learn
+-e.
