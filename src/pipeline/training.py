@@ -10,7 +10,7 @@ from tensorflow.keras.applications import VGG16
 from tensorflow.keras import Model
 from tensorflow.keras.layers import Flatten, Dense, Dropout
 from tensorflow.keras.callbacks import (
-    ReduceLROnPlateau,
+    ReduceLROnPlateau
 )
 
 from src.components.data_loader import DataGenerator, DataLoaderConfig
