@@ -21,8 +21,8 @@ class DataLoaderConfig:
 
 class DataGenerator(Sequence):
     def __init__(self,
-                image_dir,
-                batch_size,
+                image_dir=None,
+                batch_size=1,
                 target_size=(256, 256),
                 augmenter=None,
                 shuffle=False):
