@@ -60,13 +60,13 @@ def index():
             confidence = np.max(predictions[0]) * 100
 
             if confidence >= 80:
-                sentence = f"It's definitely {predicted_class}, with a confidence of ({confidence:.2f}%)"
+                sentence = f"It's definitely {predicted_class}, confidence ({confidence:.2f}%)"
             elif confidence >= 60:
-                sentence = f"I think it is {predicted_class}, with a confidence of ({confidence:.2f}%)" 
+                sentence = f"I think it is {predicted_class}, confidence ({confidence:.2f}%)" 
             elif confidence >= 40:
-                sentence = f"Maybe it is {predicted_class}, with a confidence of ({confidence:.2f}%)"
+                sentence = f"Maybe it is {predicted_class}, confidence ({confidence:.2f}%)"
             else:
-                sentence = f"I don't know, is it a {predicted_class} ? , with a confidence of ({confidence:.2f}%)"
+                sentence = f"I don't know, is it a {predicted_class} ?  confidence ({confidence:.2f}%)"
             # Return the result to the HTML page
             return render_template(
                 "index.html",
