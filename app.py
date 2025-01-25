@@ -17,7 +17,7 @@ model = load_model(MODEL_PATH)
 print("Model loaded successfully.")
 
 # Define class labels
-CLASS_NAMES = os.listdir("artifacts/train")
+CLASS_NAMES = ["bluebell", "buttercup", "colts_foot", "cowslip", "crocus", "daffodil", "daisy", "dandelion", "fritillary", "iris", "lilly-valley", "pansy", "snow-drop", "sunflower", "tigerlily", "tulip", "windflower"]
 
 
 def preprocess_image(image, target_size=(256, 256)):
@@ -79,4 +79,4 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
