@@ -1,4 +1,8 @@
 artifacts/
 logs/
 venv/
-logs/
+.git
+.DS_store
+__pycache__/
+src/
+!models/
