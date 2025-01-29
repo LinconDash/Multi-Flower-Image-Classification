@@ -1,13 +1,14 @@
 from flask import Flask, render_template, request, jsonify
 
 import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
 import numpy as np
 from PIL import Image
 import io
-from src.components.data_loader import DataGenerator
 
 app = Flask(__name__)
 
@@ -17,7 +18,7 @@ model = load_model(MODEL_PATH)
 print("Model loaded successfully.")
 
 # Define class labels
-CLASS_NAMES = ["bluebell", "buttercup", "colts_foot", "cowslip", "crocus", "daffodil", "daisy", "dandelion", "fritillary", "iris", "lilly-valley", "pansy", "snow-drop", "sunflower", "tigerlily", "tulip", "windflower"]
+CLASS_NAMES = ["bluebell", "buttercup", "colts-foot", "cowslip", "crocus", "daffodil", "daisy", "dandelion", "fritillary", "iris", "lilly-valley", "pansy", "snow-drop", "sunflower", "tigerlily", "tulip", "windflower"]
 
 
 def preprocess_image(image, target_size=(256, 256)):
@@ -79,4 +80,5 @@ def index():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
